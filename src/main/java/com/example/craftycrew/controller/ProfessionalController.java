@@ -45,4 +45,6 @@ public class ProfessionalController {
         }
         return new RegisterResponse(false,"Unable to register now!");
     }
+
+
 }

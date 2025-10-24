@@ -22,11 +22,13 @@ public class Users {
     private String name;
     private String email;
     private String password;
+    private String location;
 
-    public Users(String name, String email, String password) {
+    public Users(String name, String email, String password,String location) {
         this.id=0;
         this.name=name;
         this.email=email;
         this.password=password;
+        this.location=location;
     }
 }

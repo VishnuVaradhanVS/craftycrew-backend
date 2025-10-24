@@ -5,6 +5,8 @@ import com.example.craftycrew.repository.ProfessionalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProfessionalService {
 
@@ -17,5 +19,13 @@ public class ProfessionalService {
 
     public Professionals findProfessionalByEmail(String email){
         return professionalRepo.findProfessionalByEmail(email);
+    }
+
+    public List<Professionals> findProfessionalByLocation(String location){
+        return professionalRepo.findProfessionalsByLocation(location);
+    }
+
+    public List<Professionals> findProfessionalsByProfession(String profession){
+        return professionalRepo.findProfessionalsByProfession(profession);
     }
 }

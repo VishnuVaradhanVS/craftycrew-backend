@@ -38,7 +38,7 @@ public class UserController{
         if(user!=null){
             return new RegisterResponse(false,"Account already exists");
         }
-        user = new Users(registerRequest.getName(),registerRequest.getEmail(),registerRequest.getPassword());
+        user = new Users(registerRequest.getName(),registerRequest.getEmail(),registerRequest.getPassword(),registerRequest.getLocation());
         user = userService.addNewUser(user);
         if(user!=null){
             return new RegisterResponse(true,"Registration Successful");
