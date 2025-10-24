@@ -1,9 +1,7 @@
-package com.example.craftycrew.payload;
+package com.example.craftycrew.payload.users;
 
-import com.example.craftycrew.util.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
@@ -12,5 +10,4 @@ import lombok.Setter;
 public class LoginRequest {
     private String email;
     private String password;
-    private Role role;
 }

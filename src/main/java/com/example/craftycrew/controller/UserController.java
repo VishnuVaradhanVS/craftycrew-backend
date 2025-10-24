@@ -1,13 +1,16 @@
 package com.example.craftycrew.controller;
 
 import com.example.craftycrew.model.Users;
-import com.example.craftycrew.payload.LoginRequest;
+import com.example.craftycrew.payload.users.LoginRequest;
 import com.example.craftycrew.payload.LoginResponse;
-import com.example.craftycrew.payload.RegisterRequest;
+import com.example.craftycrew.payload.users.RegisterRequest;
 import com.example.craftycrew.payload.RegisterResponse;
 import com.example.craftycrew.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
@@ -35,7 +38,7 @@ public class UserController{
         if(user!=null){
             return new RegisterResponse(false,"Account already exists");
         }
-        user = new Users(registerRequest.getName(),registerRequest.getEmail(),registerRequest.getPassword(),registerRequest.getRole());
+        user = new Users(registerRequest.getName(),registerRequest.getEmail(),registerRequest.getPassword());
         user = userService.addNewUser(user);
         if(user!=null){
             return new RegisterResponse(true,"Registration Successful");
