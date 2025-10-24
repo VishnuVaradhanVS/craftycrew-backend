@@ -7,10 +7,7 @@ import com.example.craftycrew.payload.users.RegisterRequest;
 import com.example.craftycrew.payload.RegisterResponse;
 import com.example.craftycrew.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -46,4 +43,8 @@ public class UserController{
         return new RegisterResponse(false,"Unable to register now!");
     }
 
+    @GetMapping("/{id}")
+    public Users getUser(@PathVariable int id){
+        return userService.findUserById(id);
+    }
 }

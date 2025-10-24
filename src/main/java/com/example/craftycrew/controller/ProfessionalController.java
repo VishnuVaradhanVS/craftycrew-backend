@@ -7,11 +7,11 @@ import com.example.craftycrew.payload.RegisterResponse;
 import com.example.craftycrew.payload.professionals.RegisterRequest;
 import com.example.craftycrew.payload.users.LoginRequest;
 import com.example.craftycrew.service.ProfessionalService;
+import com.example.craftycrew.util.ProfessionalsFilterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/professionals")
@@ -46,5 +46,8 @@ public class ProfessionalController {
         return new RegisterResponse(false,"Unable to register now!");
     }
 
-
+    @GetMapping("/filter")
+    public List<Professionals> filterProfs(@RequestBody ProfessionalsFilterRequest professionalsFilterRequest){
+        return profService.getProfessionalsByFilter(professionalsFilterRequest);
+    }
 }
