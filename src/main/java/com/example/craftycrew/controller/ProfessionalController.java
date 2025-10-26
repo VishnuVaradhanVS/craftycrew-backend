@@ -26,7 +26,7 @@ public class ProfessionalController {
         if(prof==null){
             return new LoginResponse(false,"Account does not exists");
         }
-        if(!prof.getPassword().equals(loginRequest.getPassword())){
+        if(!prof.getProfPassword().equals(loginRequest.getPassword())){
             return new LoginResponse(false,"Incorrect credentials");
         }
         return new LoginResponse(true,"Login successful");
@@ -49,5 +49,10 @@ public class ProfessionalController {
     @GetMapping("/filter")
     public List<Professionals> filterProfs(@RequestBody ProfessionalsFilterRequest professionalsFilterRequest){
         return profService.getProfessionalsByFilter(professionalsFilterRequest);
+    }
+
+    @GetMapping("/{profId}")
+    public Professionals getProfessional(@PathVariable int profId){
+        return profService.getProfessionalById(profId);
     }
 }

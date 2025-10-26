@@ -14,10 +14,9 @@ import lombok.Setter;
 public class Reviews {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String review;
+    private int reviewId;
+    private String reviewMsg;
     private double ratingPoints;
-    private int userId;
     private String userName;
-    private int professionalId;
+    private int profId;
 }

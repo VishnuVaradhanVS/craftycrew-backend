@@ -2,7 +2,6 @@ package com.example.craftycrew.service;
 
 import com.example.craftycrew.model.Users;
 import com.example.craftycrew.repository.UserRepo;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +16,11 @@ public class UserService {
     }
 
     public Users findUserByEmail(String email){
-        return userRepo.findUserByEmail(email);
+        return userRepo.findUserByUserEmail(email);
     }
 
     public Users findUserById(int id){
-        return userRepo.findUserById(id);
+        return userRepo.findUserByUserId(id);
     }
 
 }

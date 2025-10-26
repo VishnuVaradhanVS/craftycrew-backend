@@ -23,7 +23,7 @@ public class UserController{
         if(user==null){
             return new LoginResponse(false,"Account does not exists");
         }
-        if(!(user.getPassword().equals(loginRequest.getPassword()))){
+        if(!(user.getUserPassword().equals(loginRequest.getPassword()))){
             return new LoginResponse(false,"Incorrect password");
         }
         return new LoginResponse(true,"Login successful");

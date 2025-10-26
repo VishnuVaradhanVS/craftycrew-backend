@@ -17,9 +17,9 @@ public class ProfessionalService {
     public List<Professionals> getProfessionalsByFilter(ProfessionalsFilterRequest filterRequest){
         List<Professionals> profs = professionalRepo.findAll();
         return profs.stream()
-                .filter(professionals -> filterRequest.getLocation()==null || professionals.getLocation().equalsIgnoreCase(filterRequest.getLocation()))
-                .filter(professionals -> filterRequest.getProfession()==null || professionals.getProfession().equalsIgnoreCase(filterRequest.getProfession()))
-                .filter(professionals -> filterRequest.getMinRating()==0 || professionals.getRating()>filterRequest.getMinRating())
+                .filter(professionals -> filterRequest.getLocation()==null || professionals.getProfLocation().equalsIgnoreCase(filterRequest.getLocation()))
+                .filter(professionals -> filterRequest.getProfession()==null || professionals.getProfProfession().equalsIgnoreCase(filterRequest.getProfession()))
+                .filter(professionals -> filterRequest.getMinRating()==0 || professionals.getProfRating()>filterRequest.getMinRating())
                 .toList();
     }
 
@@ -29,6 +29,10 @@ public class ProfessionalService {
     }
 
     public Professionals findProfessionalByEmail(String email){
-        return professionalRepo.findProfessionalByEmail(email);
+        return professionalRepo.findProfessionalByProfEmail(email);
+    }
+
+    public Professionals getProfessionalById(int profId) {
+        return professionalRepo.findByProfId(profId);
     }
 }

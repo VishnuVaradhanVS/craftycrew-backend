@@ -1,5 +1,6 @@
 package com.example.craftycrew.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,25 +18,24 @@ import java.util.List;
 public class Professionals {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String email;
-    private String password;
-    private String address;
-    private String location;
-    private String profession;
-    private double rating;
-    @OneToMany
-    private List<Reviews> reviews;
+    private int profId;
+    private String profName;
+    private String profEmail;
+    private String profPassword;
+    private String profAddress;
+    private String profLocation;
+    private String profProfession;
+    private double profRating;
+    private int reviewCount;
 
-    public Professionals(String name, String email, String password, String address, String location, String profession) {
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        this.address=address;
-        this.location=location;
-        this.profession=profession;
-        this.rating=0;
-        this.reviews=new ArrayList<Reviews>();
+    public Professionals(String name, String email, String profPassword, String address, String location, String profession) {
+        this.profName =name;
+        this.profEmail =email;
+        this.profPassword = profPassword;
+        this.profAddress =address;
+        this.profLocation =location;
+        this.profProfession =profession;
+        this.profRating =0;
+        this.reviewCount=0;
     }
 }

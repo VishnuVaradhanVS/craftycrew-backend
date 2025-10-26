@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProfessionalRepo extends JpaRepository<Professionals,Integer> {
-    public Professionals findProfessionalByEmail(String email);
+    public Professionals findByProfId(int id);
+    public Professionals findProfessionalByProfEmail(String email);
 }

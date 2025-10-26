@@ -18,17 +18,17 @@ import lombok.Setter;
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String email;
-    private String password;
-    private String location;
+    private int userId;
+    private String userName;
+    private String userEmail;
+    private String userPassword;
+    private String userLocation;
 
     public Users(String name, String email, String password,String location) {
-        this.id=0;
-        this.name=name;
-        this.email=email;
-        this.password=password;
-        this.location=location;
+        this.userId=0;
+        this.userName=name;
+        this.userEmail =email;
+        this.userPassword =password;
+        this.userLocation =location;
     }
 }
