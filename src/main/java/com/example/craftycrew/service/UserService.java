@@ -15,8 +15,13 @@ public class UserService {
     public Users addNewUser(Users user){
         return userRepo.save(user);
     }
+
     public Users findUserByEmail(String email){
         return userRepo.findUserByEmail(email);
+    }
+
+    public Users findUserById(int id){
+        return userRepo.findUserById(id);
     }
 
 }
