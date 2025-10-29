@@ -46,7 +46,7 @@ public class ProfessionalController {
         return new RegisterResponse(false,"Unable to register now!");
     }
 
-    @GetMapping("/filter")
+    @PostMapping("/filter")
     public List<Professionals> filterProfs(@RequestBody ProfessionalsFilterRequest professionalsFilterRequest){
         return profService.getProfessionalsByFilter(professionalsFilterRequest);
     }
