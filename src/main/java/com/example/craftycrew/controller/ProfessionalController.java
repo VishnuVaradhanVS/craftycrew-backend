@@ -24,12 +24,12 @@ public class ProfessionalController {
     public LoginResponse professionalLogin(@RequestBody LoginRequest loginRequest){
         Professionals prof = profService.findProfessionalByEmail(loginRequest.getEmail());
         if(prof==null){
-            return new LoginResponse(false,"Account does not exists");
+            return new LoginResponse(false,"Account does not exists",-1);
         }
         if(!prof.getProfPassword().equals(loginRequest.getPassword())){
-            return new LoginResponse(false,"Incorrect credentials");
+            return new LoginResponse(false,"Incorrect credentials",-1);
         }
-        return new LoginResponse(true,"Login successful");
+        return new LoginResponse(true,"Login successful",prof.getProfId());
     }
 
     @PostMapping("/register")

@@ -21,12 +21,12 @@ public class UserController{
     public LoginResponse userLogin(@RequestBody LoginRequest loginRequest){
         Users user = userService.findUserByEmail(loginRequest.getEmail());
         if(user==null){
-            return new LoginResponse(false,"Account does not exists");
+            return new LoginResponse(false,"Account does not exists",-1);
         }
         if(!(user.getUserPassword().equals(loginRequest.getPassword()))){
-            return new LoginResponse(false,"Incorrect password");
+            return new LoginResponse(false,"Incorrect password",-1);
         }
-        return new LoginResponse(true,"Login successful");
+        return new LoginResponse(true,"Login successful",user.getUserId());
     }
 
     @PostMapping("/register")
